@@ -1,0 +1,16 @@
+# render.yaml
+services:
+  - type: web
+    name: backing-track-app
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+    disk:
+      name: audio-storage
+      mountPath: /app/static/audio
+      sizeGB: 1
